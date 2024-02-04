@@ -1,0 +1,416 @@
+@charset "UTF-8";
+/* Ajouter ces styles à la fin du fichier styles.scss */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #121212; /* Gris clair comme couleur de fond */
+  color: #333; /* Couleur du texte */
+  /* Ajout de deux couleurs dominantes */
+  --primary-color: #2196f3; /* Bleu turquoise */
+  --secondary-color: #ff4081; /* Rose */
+  /* Utilisation des couleurs dans différents éléments */
+}
+
+header {
+  background-image: url("/dist/img/sahin-sezer-dincer-2vuEBXG-J_E-unsplash.jpg");
+  text-align: center;
+  padding: 2em 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  border-radius: 50%;
+  margin-right: 1em;
+  max-width: 100%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+h1, p {
+  margin: 0;
+}
+
+nav {
+  background-color: #212121;
+  padding: 1em 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  margin-right: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #42a5f5;
+  font-weight: bold;
+}
+
+main {
+  padding: 2em;
+}
+
+.content-section {
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  padding: 2em;
+  margin-bottom: 2em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  color: #42a5f5;
+  position: relative;
+  margin-bottom: 1em;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background-color: #42a5f5;
+}
+
+p {
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-list li {
+  flex: 1 0 200px;
+  text-align: center;
+  margin: 0.5em;
+}
+
+.skills-list img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.5em;
+  border-radius: 50%;
+  border: 2px solid #42a5f5;
+  padding: 5px;
+  transition: transform 0.3s;
+}
+
+.project {
+  margin-bottom: 1em;
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.project:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+footer {
+  background-color: #121212;
+  color: #fff;
+  text-align: center;
+  padding: 2em 0;
+}
+
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  background-color: #fff;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  transform: translateY(-100%);
+  animation: twinkle linear infinite, zoomIn 2s ease-out;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+/* Ajouter des styles pour une section "Projets Récents" */
+.recent-projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.recent-project {
+  flex: 1 0 calc(33.33% - 1em);
+  margin-bottom: 1em;
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recent-project img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.recent-project:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.recent-project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.recent-project:hover::before {
+  opacity: 1;
+}
+
+.recent-project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  width: 100%; /* Ajuster la largeur du texte au conteneur parent */
+}
+
+.recent-project-info h3 {
+  color: #fff;
+  margin: 0;
+}
+
+.recent-project-info p {
+  color: #ccc;
+}
+
+/* Ajouter des styles pour une section "Contact" */
+.contact-section {
+  background-color: #1a1a1a;
+  padding: 3em;
+  text-align: center;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #42a5f5;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  background-color: #333;
+  border: 1px solid #42a5f5;
+  color: #fff;
+}
+
+.contact-form button {
+  padding: 0.5em 1em;
+  background-color: #42a5f5;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #64b5f6;
+}
+
+/* Ajouter ces styles dans un fichier séparé styles.css */
+/* Ajoutez ces styles à votre fichier styles.scss */
+#cv {
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  padding: 2em;
+  margin-bottom: 2em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+#cv h2 {
+  color: #42a5f5;
+  position: relative;
+  margin-bottom: 1em;
+  font-size: 2em;
+}
+
+#cv h2::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background-color: #42a5f5;
+}
+
+#cv p {
+  color: #ccc;
+  line-height: 1.5;
+}
+
+#cv a {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  background-color: #42a5f5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#cv a:hover {
+  background-color: #1e88e5;
+}
+
+/* Ajoutez ces styles à votre fichier styles.scss */
+#banner {
+  position: relative;
+  height: 300px; /* Ajustez la hauteur selon vos préférences */
+  margin-bottom: 2em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: background-position 0.5s ease-in-out;
+}
+
+.banner-image {
+  background-image: url("/dist/img/james-harrison-vpOeXr5wmR4-unsplash.jpg"); /* Ajoutez le chemin de votre image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%; /* Utilisez 100% pour occuper toute la largeur */
+  filter: brightness(50%) contrast(80%); /* Ajustez les filtres selon vos préférences */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#banner .banner-content {
+  text-align: center;
+  width: 100%;
+  position: relative; /* Ajoutez cette propriété pour positionner le contenu par-dessus l'image */
+  z-index: 1; /* Assurez-vous que le contenu est au-dessus de l'image */
+  padding: 2em; /* Ajustez la marge intérieure du contenu */
+  opacity: 0; /* Initiallement, le contenu est transparent */
+  transition: opacity 2s ease-in-out;
+}
+
+#banner p {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+#banner cite {
+  font-style: normal;
+  font-size: 1em;
+}
+
+#banner:hover .banner-content {
+  opacity: 1; /* Le contenu devient opaque au survol */
+}
+
+.skills-list img:hover,
+.project img:hover {
+  transform: rotate(360deg);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes twinkle {
+  0%, 100% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
